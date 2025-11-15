@@ -90,3 +90,32 @@ body {
 
   fill: var(--color);
 }
+
+.legend > div,
+#map svg circle {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  background-color: var(--color);
+  fill: var(--color);
+}
+
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.legend > div {
+  flex: 1;
+  padding: 8px 16px;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+}
