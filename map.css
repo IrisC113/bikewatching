@@ -1,0 +1,92 @@
+html,
+body {
+  margin: 0;
+  padding: 5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#map svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#map svg circle {
+  pointer-events: auto;
+}
+
+.toolbar {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  padding: 10px 0;
+}
+
+#time-filter {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#time-slider {
+  width: 300px;
+}
+
+#time-badge {
+  position: absolute;
+  right: 0;
+  bottom: -1.3em; 
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+#time-display {
+  display: none;
+}
+
+#any-time {
+  opacity: 0.6;
+  font-style: italic;
+  color: #555;
+}
+
+.label-text {
+  margin-right: 0.5em;
+  white-space: nowrap;
+}
+
+
+#map svg circle {
+  pointer-events: auto;
+
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+
+  fill: var(--color);
+}
